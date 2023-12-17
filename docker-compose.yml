@@ -1,0 +1,13 @@
+services:
+  autobahn:
+    container_name: autobahnappcontainer
+    build: .
+    image: autobahn:v2
+    ports:
+       - "3000:80"
+    networks:
+      - internalnet
+
+networks:
+  internalnet:
+    driver: bridge
