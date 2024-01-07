@@ -23,7 +23,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     MatSelectModule,
     MatButtonModule,
-    MatIconModule,
+    // MatIconModule,
     HttpClientModule,
     SharedModule,
     // autobahnApiModule,

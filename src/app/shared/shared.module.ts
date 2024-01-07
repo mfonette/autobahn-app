@@ -6,6 +6,8 @@ import { DashboardHeaderComponent } from './components/dashboard-header/dashboar
 import { DashboardSidenavComponent } from './components/dashboard-sidenav/dashboard-sidenav.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     SharedRoutingModule,
     MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
   ]
 })
 export class SharedModule { }
