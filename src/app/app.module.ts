@@ -10,10 +10,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from './shared/shared.module';
+import { DashboardHeaderComponent } from './shared/components/dashboard-header/dashboard-header.component';
+import { DashboardSidenavComponent } from './shared/components/dashboard-sidenav/dashboard-sidenav.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardHeaderComponent,
+    DashboardSidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     MatSelectModule,
     MatButtonModule,
-    // MatIconModule,
+    MatIconModule,
     HttpClientModule,
     SharedModule,
     // autobahnApiModule,

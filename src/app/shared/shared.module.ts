@@ -12,14 +12,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
-    DashboardHeaderComponent,
-    DashboardSidenavComponent,
+    // DashboardHeaderComponent,
+    // DashboardSidenavComponent,
     DataTableComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
-    MatIconModule,
+    // MatIconModule,
     MatTableModule,
     MatPaginatorModule,
   ]

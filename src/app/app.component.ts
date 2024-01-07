@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'autobahn-application';
+  hamClick: any;
+  isMenuOpen!: boolean;
+  navLinks: any;
+
+
+  toggleMenu() {
+    this.hamClick = !this.hamClick;
+    this.isMenuOpen = this.hamClick;
+  }
 }
