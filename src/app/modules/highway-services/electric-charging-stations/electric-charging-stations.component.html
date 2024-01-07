@@ -1,1 +1,10 @@
-<p>electric-charging-stations works!</p>
+<h3>Electric Charging Stations</h3>
+
+<div *ngIf="isLoading; else dataTemplate">
+    <mat-spinner></mat-spinner> <!-- or any loading indicator you prefer -->
+  </div>
+
+  <ng-template #dataTemplate>
+    <!-- Your table and data display here -->
+    <app-data-table [data]="electricChargingStationData" [columns]="columns"  (viewAction)="onViewDetails($event)"></app-data-table>
+  </ng-template>
