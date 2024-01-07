@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription, take } from 'rxjs';
+import { ColumnDefinition } from 'src/app/shared/column-definition';
+import { AutobahnService } from 'src/app/shared/services/autobahn.service';
+import { HigwayService } from 'src/app/shared/services/higway.service';
 
 @Component({
   selector: 'app-roadworks',
@@ -6,10 +12,72 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./roadworks.component.css']
 })
 export class RoadworksComponent implements OnInit {
+  highwayId!: any;
+  isLoading = true;
+  updatedState!: any;
+  roadworksData!: any// Populate this with actual data
+  private subscription: Subscription = new Subscription();
+  columns: ColumnDefinition[] = [
+    { header: 'Highway', dataKey: 'title' },
+    { header: 'Title', dataKey: 'subTitle' }
+  ];
+  
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router,
+    private autobahnService: AutobahnService,
+    private http: HttpClient,
+    private changeDetectorRefs: ChangeDetectorRef,
+    private highwayService: HigwayService,
+    private activatedRoute: ActivatedRoute
+    ) { 
+      this.fetchInitialData();
+    }
 
-  constructor() { }
+    ngOnInit() {
+      const serviceType = this.activatedRoute.snapshot.routeConfig?.path; // This gets 'roadworks' for the roadworks route
+      if(serviceType) {
+        this.highwayService.changeServiceType(serviceType);
+      }
+      this.highwayService.selectedHighway$.subscribe(highway => {
+        if (highway) {
+          this.fetchData(highway);
+        }
+      });
+    }
 
-  ngOnInit(): void {
-  }
+    fetchInitialData() {
+      this.highwayService.selectedHighway$.pipe(take(1)).subscribe(highway => {
+        this.fetchData(highway);
+      });
+    }
+
+    fetchData(highway: string) {
+      this.isLoading = true;
+      this.subscription.add(this.autobahnService.fetchServiceDetails(highway, 'roadworks').subscribe({
+        next: (data) => {
+          console.log(data)
+          this.roadworksData = data.roadworks.map((roadwork: any) => ({
+            title: roadwork.title,
+            subTitle: roadwork.subtitle
+          }));
+          this.changeDetectorRefs.detectChanges();
+          this.isLoading = false;
+        }
+      }));
+    }
+
+    ngOnDestroy() {
+      this.subscription.unsubscribe();  // Unsubscribe when the component is destroyed
+    }
+
+
+    navigateToService(serviceName: string) {
+      this.router.navigate([`${serviceName.toLowerCase()}`]);
+    }
+
+onViewDetails(element: any) {
+  // Handle the action (e.g., navigate to a detail page or open a modal)
+}
 
 }

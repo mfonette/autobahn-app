@@ -39,7 +39,6 @@ export class AppComponent implements OnInit {
         this.selectedHighway = 'A1';
         this.highwayService.resetToDefaultHighway();
       }
-      // Add other conditions as needed
     });
   }
 

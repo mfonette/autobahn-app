@@ -7,6 +7,11 @@ import { WarningsComponent } from './warnings/warnings.component';
 import { ClosuresComponent } from './closures/closures.component';
 import { ParkingLorriesComponent } from './parking-lorries/parking-lorries.component';
 import { RoadworksComponent } from './roadworks/roadworks.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { DataTableComponent } from 'src/app/shared/components/data-table/data-table.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -15,11 +20,17 @@ import { RoadworksComponent } from './roadworks/roadworks.component';
     WarningsComponent,
     ClosuresComponent,
     ParkingLorriesComponent,
-    RoadworksComponent
+    RoadworksComponent,
+    DataTableComponent
   ],
   imports: [
     CommonModule,
-    HighwayServicesRoutingModule
+    HighwayServicesRoutingModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    SharedModule,
+    MatTableModule,
+    MatPaginatorModule,
   ]
 })
 export class HighwayServicesModule { }

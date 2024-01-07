@@ -12,12 +12,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from './shared/shared.module';
 import { DashboardHeaderComponent } from './shared/components/dashboard-header/dashboard-header.component';
 import { DashboardSidenavComponent } from './shared/components/dashboard-sidenav/dashboard-sidenav.component';
+import { HighwayServicesModule } from './modules/highway-services/highway-services.module';
+import { DataTableComponent } from './shared/components/data-table/data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardHeaderComponent,
     DashboardSidenavComponent,
+    // DataTableComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +35,11 @@ import { DashboardSidenavComponent } from './shared/components/dashboard-sidenav
     MatIconModule,
     HttpClientModule,
     SharedModule,
+    // MatTableModule,
+    // MatPaginatorModule,
+    
     // autobahnApiModule,
-    // HighwaysModule,
+    // HighwayServicesModule,
 
   ],
   providers: [],

@@ -14,7 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   declarations: [
     // DashboardHeaderComponent,
     // DashboardSidenavComponent,
-    DataTableComponent
+    // DataTableComponent
   ],
   imports: [
     CommonModule,
