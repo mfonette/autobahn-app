@@ -19,14 +19,14 @@
         <div style="display: flex; align-items: center; gap: 10px;">
           <mat-form-field appearance="fill">
             <mat-label>Highways</mat-label>
-            <mat-select [(ngModel)]="selectedHighway">
+            <mat-select [(ngModel)]="selectedHighway" (selectionChange)="onHighwaySelect($event.value)">
               <mat-option *ngFor="let highway of listOfHighways" [value]="highway">
                 {{highway}}
               </mat-option>
             </mat-select>
           </mat-form-field>
 
-          <button mat-raised-button>View Map</button>
+          <button mat-raised-button  routerLink="/view-map/map">View Map</button>
           </div>
         <router-outlet></router-outlet>
       </div>

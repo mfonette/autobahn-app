@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
       // Now you can check the URL or other conditions:
       if (event.url.includes('/highway-info')) {
         this.selectedHighway = 'A1';
-        // this.highwayService.resetToDefaultHighway();
+        this.highwayService.resetToDefaultHighway();
       }
       // Add other conditions as needed
     });
@@ -57,6 +57,19 @@ export class AppComponent implements OnInit {
   }));
   }
 
+  getSelectedHighway() {
+    this.subscription.add(this.highwayService.selectedHighway$.subscribe(highway => {
+      if (highway) {
+        this.selectedHighway = highway;
+        console.log('from app',highway)
+      }
+    }));
+  }
+
+  onHighwaySelect(highway: string) {
+    console.log('Highway selected:', highway);
+    this.highwayService.setSelectedHighway(highway);
+    }
 
     ngOnDestroy() {
       this.subscription.unsubscribe();  // Unsubscribe when the component is destroyed
