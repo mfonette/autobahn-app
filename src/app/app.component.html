@@ -16,6 +16,18 @@
     <!-- Main -->
     <main [class.show-menu]="hamClick">
       <div class="main-body">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <mat-form-field appearance="fill">
+            <mat-label>Highways</mat-label>
+            <mat-select [(ngModel)]="selectedHighway">
+              <mat-option *ngFor="let highway of listOfHighways" [value]="highway">
+                {{highway}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button>View Map</button>
+          </div>
         <router-outlet></router-outlet>
       </div>
     </main>
