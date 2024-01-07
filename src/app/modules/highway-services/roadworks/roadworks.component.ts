@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, take } from 'rxjs';
@@ -22,11 +21,9 @@ export class RoadworksComponent implements OnInit {
     { header: 'Title', dataKey: 'subTitle' }
   ];
   
-  constructor(
-    private route: ActivatedRoute, 
+  constructor(  
     private router: Router,
     private autobahnService: AutobahnService,
-    private http: HttpClient,
     private changeDetectorRefs: ChangeDetectorRef,
     private highwayService: HigwayService,
     private activatedRoute: ActivatedRoute
@@ -35,7 +32,7 @@ export class RoadworksComponent implements OnInit {
     }
 
     ngOnInit() {
-      const serviceType = this.activatedRoute.snapshot.routeConfig?.path; // This gets 'roadworks' for the roadworks route
+      const serviceType = this.activatedRoute.snapshot.routeConfig?.path;
       if(serviceType) {
         this.highwayService.changeServiceType(serviceType);
       }
@@ -68,7 +65,7 @@ export class RoadworksComponent implements OnInit {
     }
 
     ngOnDestroy() {
-      this.subscription.unsubscribe();  // Unsubscribe when the component is destroyed
+      this.subscription.unsubscribe();
     }
 
 

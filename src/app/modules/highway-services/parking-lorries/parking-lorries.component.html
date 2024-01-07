@@ -1,11 +1,10 @@
 <h3>parking lorries</h3>
 
 <div *ngIf="isLoading; else dataTemplate">
-    <mat-spinner></mat-spinner> <!-- or any loading indicator you prefer -->
+    <mat-spinner></mat-spinner>
   </div>
 
   <ng-template #dataTemplate>
-    <!-- Your table and data display here -->
     <app-data-table [data]="parkingLorryData" [columns]="columns"  (viewAction)="onViewDetails($event)"></app-data-table>
   </ng-template>
 

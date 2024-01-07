@@ -14,7 +14,7 @@ export class ParkingLorriesComponent implements OnInit {
   isLoading = true;
   highwayId!: any;
   updatedState!: any;
-  parkingLorryData!: any// Populate this with actual data
+  parkingLorryData!: any;
   private subscription: Subscription = new Subscription();
   columns: ColumnDefinition[] = [
     { header: 'Highway', dataKey: 'title' },
@@ -28,7 +28,6 @@ export class ParkingLorriesComponent implements OnInit {
     private autobahnService: AutobahnService,
     private router: Router, 
     ) { 
-      // this.fetchData('A1')
       this.fetchInitialData();
     }
 
@@ -39,7 +38,7 @@ export class ParkingLorriesComponent implements OnInit {
         }
       });
 
-      const serviceType = this.activatedRoute.snapshot.routeConfig?.path; // This gets 'roadworks' for the roadworks route
+      const serviceType = this.activatedRoute.snapshot.routeConfig?.path;
       if(serviceType) {
         this.highwayService.changeServiceType(serviceType);
       }
@@ -52,9 +51,6 @@ export class ParkingLorriesComponent implements OnInit {
     }
 
     fetchData(highway: string) {
-      // console.log(highway)
-      const baseUrl = 'https://verkehr.autobahn.de/o/autobahn/';
-      const url = baseUrl + highway + '/services/parking_lorry';
       this.isLoading = true;
       this.subscription.add(this.autobahnService.fetchServiceDetails(highway, 'parking_lorry').subscribe({
         next: (data) => {
@@ -70,11 +66,10 @@ export class ParkingLorriesComponent implements OnInit {
     }
 
     ngOnDestroy() {
-      this.subscription.unsubscribe();  // Unsubscribe when the component is destroyed
+      this.subscription.unsubscribe();  
     }
 
     navigateToService(serviceName: string) {
-      // this.highwayService.setSelectedService(serviceName);
       this.router.navigate([`${serviceName.toLowerCase()}`]);
     }
 

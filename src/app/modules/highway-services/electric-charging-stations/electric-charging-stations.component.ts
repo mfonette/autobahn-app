@@ -12,7 +12,7 @@ import { HigwayService } from 'src/app/shared/services/higway.service';
 export class ElectricChargingStationsComponent implements OnInit {
   isLoading = true;
   highwayId!: any;
-  electricChargingStationData!: any// Populate this with actual data
+  electricChargingStationData!: any;
   private subscription: Subscription = new Subscription();
   columns: ColumnDefinition[] = [
     { header: 'Highway', dataKey: 'title' },
@@ -31,12 +31,11 @@ export class ElectricChargingStationsComponent implements OnInit {
     ngOnInit() {
       this.highwayService.selectedHighway$.subscribe(highway => {
         if (highway) {
-          console.log(highway)
           this.fetchData(highway);
         }
       });
 
-      const serviceType = this.activatedRoute.snapshot.routeConfig?.path; // This gets 'roadworks' for the roadworks route
+      const serviceType = this.activatedRoute.snapshot.routeConfig?.path;
       if(serviceType) {
         this.highwayService.changeServiceType(serviceType);
       }
@@ -64,7 +63,7 @@ export class ElectricChargingStationsComponent implements OnInit {
     }
 
     ngOnDestroy() {
-      this.subscription.unsubscribe();  // Unsubscribe when the component is destroyed
+      this.subscription.unsubscribe();
     }
 
 onViewDetails(element: any) {

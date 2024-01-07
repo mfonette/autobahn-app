@@ -1,1 +1,11 @@
-<p>closures works!</p>
+<h3>closures</h3>
+
+<div *ngIf="isLoading; else dataTemplate">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <ng-template #dataTemplate>
+    <app-data-table [data]="closureData" [columns]="columns"  (viewAction)="onViewDetails($event)"></app-data-table>
+  </ng-template>
+
+
