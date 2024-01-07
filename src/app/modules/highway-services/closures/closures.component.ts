@@ -37,7 +37,7 @@ export class ClosuresComponent implements OnInit {
         }
       });
 
-      const serviceType = this.activatedRoute.snapshot.routeConfig?.path; // This gets 'roadworks' for the roadworks route
+      const serviceType = this.activatedRoute.snapshot.routeConfig?.path;
       if(serviceType) {
         this.highwayService.changeServiceType(serviceType);
       }
