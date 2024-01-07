@@ -1,0 +1,105 @@
+/* Variables from variables.scss */
+:root {
+    --primary1: #010066;
+    --primary2: #323385;
+    --white-color: #ffffff;
+    --black1: #0c0c0c;
+    --error1: #e92c2c;
+    --grey3: #acacac;
+    --s-1: 0.5rem;
+    --s-2: 1rem;
+    --s-3: 1.5rem;
+    --s-4: 2rem;
+    --border-radius3: 10px;
+    --box-shadow1: 0px 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Basic header styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    color: #ffffff;
+    z-index: 150;
+}
+
+.header .header_container {
+    height: 4rem;
+    display: flex; /* replaced gap with margin in child elements */
+    justify-content: space-between;
+    background: #010066;
+    padding: 0.5rem 0.5rem;
+}
+
+.dis-flex {
+    display: flex;
+    align-items: center;
+  }
+
+@media only screen and (max-width: 997px) {
+    .header .header_container {
+        padding: 0.5rem 0.5rem;
+    }
+}
+
+.header .header_container .header_left,
+.header .header_container .header_right {
+    display: flex; /* set display to flex to apply gap using margins */
+}
+
+.header .header_container .header_left .header_left_menu {
+    display: none;
+}
+
+@media only screen and (max-width: 997px) {
+    .header .header_container .header_left .header_left_menu {
+        display: block;
+    }
+}
+
+.header .header_container .header_left .header_left_menu .icon {
+    font-size: 25px;
+    padding: 0.5rem;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+}
+
+.header .header_container .header_left .header_left_menu .icon:hover {
+    background-color: #323385;
+}
+
+.header .header_container .header_left .logo {
+    max-width: 102px;
+    height: 50px;
+}
+
+.header .header_container .header_right .header_right_profile .header_right_profile_avatar {
+    display: inline-grid;
+    place-items: center;
+    min-width: 40px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    border-radius: 50%;
+    transition: 0.2s all ease;
+}
+
+.header .header_container .header_right .header_right_profile .header_right_profile_avatar .icon {
+    color: #010066;
+    font-size: 18px;
+}
+
+.header .header_container .header_right .header_right_profile:hover .header_right_profile_avatar {
+    border: 1px solid #ffffff;
+    background: #010066;
+    color: #ffffff;
+}
+
+.header .header_container .header_right .header_right_profile:hover .header_right_profile_avatar .icon {
+    color: #ffffff;
+}

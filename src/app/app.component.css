@@ -1,0 +1,107 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Mulish', sans-serif;
+  position: relative;
+  color: #0c0c0c;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  /* background-color: grey */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 100%; */
+
+
+  }
+  
+  .filter-panel {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    margin-right: 8px;
+  }
+
+  /* Variables from variables.scss */
+:root {
+  --divider-color1: #ECEDF1;
+  --white-color: #ffffff;
+  --s-2: 1rem;
+  --s-4: 2rem;
+}
+
+.container-dash {
+  position: relative;
+  top: 4rem;
+  background: #ECEDF1;
+  min-height: 100vh;
+}
+
+@media only screen and (min-width: 997px) {
+  .container-dash_body {
+      display: flex;
+  }
+}
+
+/* Sidenav Area */
+.container-dash_body .sidenav-area {
+  width: 20%;
+  min-height: 100vh;
+  border-right: 1px solid #ECEDF1;
+  background: #ffffff;
+}
+
+.container-dash_body .sidenav-area .sidenav {
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 997px) {
+  .container-dash_body .sidenav-area {
+      position: fixed;
+      left: -100%;
+      width: 200px;
+      transition: all 0.5s;
+      z-index: 100;
+  }
+
+  .container-dash_body .sidenav-area.show-menu {
+      left: 0;
+  }
+
+  .container-dash_body .sidenav-area .sidenav {
+      width: 100%;
+  }
+}
+
+/* Main Area */
+.container-dash_body main {
+  width: 100%;
+  padding: 1rem;
+  position: relative;
+}
+
+@media only screen and (min-width: 997px) {
+  .container-dash_body main {
+      padding: 2rem;
+  }
+}
+
+  
