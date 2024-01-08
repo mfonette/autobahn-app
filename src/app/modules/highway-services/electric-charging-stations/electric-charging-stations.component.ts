@@ -20,7 +20,7 @@ export class ElectricChargingStationsComponent implements OnInit {
   ];
   
   constructor(
-    private changeDetectorRefs: ChangeDetectorRef,
+    private changeDetectorRefs: ChangeDetectorRef,  
     private highwayService: HigwayService,
     private activatedRoute: ActivatedRoute,
     private autobahnService: AutobahnService,
@@ -31,9 +31,16 @@ export class ElectricChargingStationsComponent implements OnInit {
     ngOnInit() {
       this.highwayService.selectedHighway$.subscribe(highway => {
         if (highway) {
+          console.log(highway)
           this.fetchData(highway);
         }
       });
+      // this.highwayService.selectedHighway$.subscribe(highway => {
+      //   if (highway) {
+      //     console.log(highway)
+      //     this.fetchData(highway);
+      //   }
+      // });
 
       const serviceType = this.activatedRoute.snapshot.routeConfig?.path;
       if(serviceType) {
@@ -43,6 +50,7 @@ export class ElectricChargingStationsComponent implements OnInit {
 
     fetchInitialData() {
       this.highwayService.selectedHighway$.pipe(take(1)).subscribe(highway => {
+        console.log(highway)
         this.fetchData(highway);
       });
     }

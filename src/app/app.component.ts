@@ -3,6 +3,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
 import { HigwayService } from './shared/services/higway.service';
 import { AutobahnService } from './shared/services/autobahn.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
@@ -16,30 +18,33 @@ export class AppComponent implements OnInit {
   navLinks: any;
   listOfHighways: string[] | undefined = [];
   selectedHighway: string = ''
+  isMapView: boolean = false; 
   @Output() highwaySelected = new EventEmitter<string>();
   private subscription: Subscription = new Subscription();
 
   constructor(
     private autobahnService:AutobahnService,
     private router: Router,
-    private highwayService: HigwayService
+    private highwayService: HigwayService,
+    private location: Location
   ) { 
     this.router.navigate([`/highway-info/roadworks`]);
   }
 
   ngOnInit(): void {
     this.getAllHighWays();
-    this.selectedHighway = 'A1';
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd) // Only continue if it's a navigation end event
-    ).subscribe((event: any) => {
-      console.log(event.url)
-      // Now you can check the URL or other conditions:
-      if (event.url.includes('/highway-info')) {
-        this.selectedHighway = 'A1';
-        this.highwayService.resetToDefaultHighway();
+    this.highwayService.selectedHighway$.subscribe(highway => {
+      console.log('onInIt', highway)
+      this.selectedHighway = highway; // This should update whenever the highway changes
+    });
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Update isMapView based on the current URL
+        this.isMapView = event.url.includes('/view-map/map');
       }
     });
+
   }
 
   toggleMenu() {
@@ -66,11 +71,16 @@ export class AppComponent implements OnInit {
   }
 
   onHighwaySelect(highway: string) {
-    console.log('Highway selected:', highway);
+    console.log(`onHighwaySelect: Highway selected: ${highway} at ${new Date().toISOString()}`);
     this.highwayService.setSelectedHighway(highway);
     }
 
     ngOnDestroy() {
       this.subscription.unsubscribe();  // Unsubscribe when the component is destroyed
+    }
+
+    goBack() {
+      // Navigate back to the previous state
+      this.location.back();
     }
 }

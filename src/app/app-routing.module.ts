@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HighwayResetGuard } from './shared/highway-reset.guard'; // update with actual path
+
 
 const routes: Routes = [
   {
     path: 'highway-info',
+    // canActivate: [HighwayResetGuard],
     loadChildren: () =>
       import('./modules/highway-services/highway-services.module').then((m) => m.HighwayServicesModule),
   },

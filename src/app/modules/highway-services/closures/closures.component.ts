@@ -26,7 +26,7 @@ export class ClosuresComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private autobahnService: AutobahnService,
     ) { 
-      this.fetchInitialData();
+      // this.fetchInitialData();
     }
 
     ngOnInit() {
@@ -45,6 +45,7 @@ export class ClosuresComponent implements OnInit {
 
     fetchInitialData() {
       this.highwayService.selectedHighway$.pipe(take(1)).subscribe(highway => {
+        console.log('initital', highway)
         this.fetchData(highway);
       });
     }

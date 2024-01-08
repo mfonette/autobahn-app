@@ -26,13 +26,12 @@
             </mat-select>
           </mat-form-field>
 
-          <button mat-raised-button  routerLink="/view-map/map">View Map</button>
+          <!-- <button mat-raised-button  routerLink="/view-map/map">View Map</button> -->
+          <button *ngIf="!isMapView" mat-raised-button routerLink="/view-map/map">View Map</button>
+          <button *ngIf="isMapView" mat-raised-button (click)="goBack()">Back</button>
           </div>
         <router-outlet></router-outlet>
       </div>
     </main>
   </div>
 </div>  
-  
- 
-  <!-- <router-outlet></router-outlet> -->a

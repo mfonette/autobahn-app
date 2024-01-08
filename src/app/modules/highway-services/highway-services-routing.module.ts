@@ -4,14 +4,13 @@ import { ClosuresComponent } from './closures/closures.component';
 import { ParkingLorriesComponent } from './parking-lorries/parking-lorries.component';
 import { RoadworksComponent } from './roadworks/roadworks.component';
 import { ElectricChargingStationsComponent } from './electric-charging-stations/electric-charging-stations.component';
+import { HighwayResetGuard } from '../../shared/highway-reset.guard'; // update with actual path
 
 const routes: Routes = [
-  { path: 'roadworks', component: RoadworksComponent},
-  // { path: 'webcams', component: WebcamsComponent },
-  { path: 'closures', component: ClosuresComponent },
-  // { path: 'warnings', component: WarningsComponent },
-  { path: 'parking-lorries', component: ParkingLorriesComponent },
-  { path: 'electric-charging-stations', component: ElectricChargingStationsComponent },
+  { path: 'roadworks', component: RoadworksComponent, canActivate: [HighwayResetGuard],},
+  { path: 'closures', component: ClosuresComponent, canActivate: [HighwayResetGuard], },
+  { path: 'parking-lorries', component: ParkingLorriesComponent, canActivate: [HighwayResetGuard], },
+  { path: 'electric-charging-stations', component: ElectricChargingStationsComponent, canActivate: [HighwayResetGuard], },
 ];
 
 @NgModule({
