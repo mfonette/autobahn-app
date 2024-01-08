@@ -16,16 +16,12 @@ body {
   color: #0c0c0c;
   letter-spacing: 0.01em;
   overflow-x: hidden;
-  /* background-color: grey */
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* width: 100%; */
-
-
   }
   
   .filter-panel {
@@ -38,14 +34,6 @@ body {
   mat-form-field {
     margin-right: 8px;
   }
-
-  /* Variables from variables.scss */
-:root {
-  --divider-color1: #ECEDF1;
-  --white-color: #ffffff;
-  --s-2: 1rem;
-  --s-4: 2rem;
-}
 
 .container-dash {
   position: relative;

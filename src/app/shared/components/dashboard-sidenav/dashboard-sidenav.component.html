@@ -1,59 +1,50 @@
 <div class="sidenav_container">
-    <nav>
-      <ul>
-        <li
-        class="dis-flex"
-          routerLinkActive="active"
-          routerLink="/highway-info/closures"
-          (click)="closeMenu()"
-        >
-          <span class="">
-            <mat-icon class="icon">block</mat-icon>
-          </span>
-          Closures
-        </li>
-        <li
-          class="dis-flex"
-          routerLinkActive="active"
-          routerLink="/highway-info/roadworks"
-          (click)="closeMenu()"
-        >
-          <span class="">
-            <mat-icon class="icon">construction</mat-icon>
-          </span>
-          Roadworks
-        </li>
+  <nav>
+    <ul>
       <li
-      class="dis-flex"
-      routerLinkActive="active"
-      routerLink="/highway-info/parking-lorries"
-      (click)="closeMenu()"
-    >
-      <span class="">
+        class="dis-flex"
+        routerLinkActive="active"
+        routerLink="/highway-info/closures"
+        (click)="closeMenu()"
+      >
+        <span class="">
+          <mat-icon class="icon">block</mat-icon>
+        </span>
+        Closures
+      </li>
+      <li
+        class="dis-flex"
+        routerLinkActive="active"
+        routerLink="/highway-info/roadworks"
+        (click)="closeMenu()"
+      >
+        <span class="">
+          <mat-icon class="icon">construction</mat-icon>
+        </span>
+        Roadworks
+      </li>
+      <li
+        class="dis-flex"
+        routerLinkActive="active"
+        routerLink="/highway-info/parking-lorries"
+        (click)="closeMenu()"
+      >
+        <span class="">
           <mat-icon class="icon">local_shipping</mat-icon>
-
-      </span>
-      Parking Lorries
-    </li>
-        <li
-          class="dis-flex"
-          routerLinkActive="active"
-          routerLink="/highway-info/electric-charging-stations"
-          (click)="closeMenu()"
-          >
-          <span class="">
-            <mat-icon class="icon">ev_station</mat-icon>
-          </span>
-          Electric Charging Stations
-        </li>
-      
-
-      
-      </ul>
-    </nav>
-    <div class="log-out dis-flex hover-1">
-      <i class='bx bx-log-out icon'></i>
-      <!-- <p class="clickable" (click)="logOut()">Log Out</p> -->
-    </div>
-  </div>
-  
+        </span>
+        Parking Lorries
+      </li>
+      <li
+        class="dis-flex"
+        routerLinkActive="active"
+        routerLink="/highway-info/electric-charging-stations"
+        (click)="closeMenu()"
+      >
+        <span class="">
+          <mat-icon class="icon">ev_station</mat-icon>
+        </span>
+        Electric Charging Stations
+      </li>
+    </ul>
+  </nav>
+</div>

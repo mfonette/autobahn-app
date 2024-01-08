@@ -1,28 +1,19 @@
-/* table {
-    width: 80%;
-  } */
+.mat-elevation-z8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
-  .mat-elevation-z8 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* This ensures that the container takes up the full width */
-  }
-  
-  .mat-table {
-    width: 100%; /* This ensures that the table takes up the full width of its container */
-  }
-
-  
+.mat-table {
+  width: 100%;
+}
 
 .mat-paginator-outer-container {
   display: center;
 }
-  
-  .mat-paginator {
-    width: 100%; /* Adjust the width based on the container's padding */
-    align-items: center;
-    /* margin-left: auto; This pushes the paginator to the center */
-    /* margin-right: auto; This pushes the paginator to the center */
-  }
-  
+
+.mat-paginator {
+  width: 100%;
+  align-items: center;
+}

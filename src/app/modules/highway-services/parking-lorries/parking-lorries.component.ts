@@ -28,7 +28,7 @@ export class ParkingLorriesComponent implements OnInit {
     private autobahnService: AutobahnService,
     private router: Router, 
     ) { 
-      this.fetchInitialData();
+      // this.fetchInitialData();
     }
 
     ngOnInit() {

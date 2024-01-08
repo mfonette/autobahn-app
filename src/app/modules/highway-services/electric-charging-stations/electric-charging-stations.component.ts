@@ -25,7 +25,7 @@ export class ElectricChargingStationsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private autobahnService: AutobahnService,
     ) { 
-      this.fetchInitialData();
+      // this.fetchInitialData();
     }
 
     ngOnInit() {

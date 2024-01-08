@@ -28,7 +28,7 @@ export class RoadworksComponent implements OnInit {
     private highwayService: HigwayService,
     private activatedRoute: ActivatedRoute
     ) { 
-      this.fetchInitialData();
+      // this.fetchInitialData();
     }
 
     ngOnInit() {

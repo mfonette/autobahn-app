@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate,ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { HigwayService } from './services/higway.service';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { HigwayService } from './services/higway.service';
 })
 export class HighwayResetGuard implements CanActivate {
 
-  constructor(private highwayService: HigwayService, private router: Router) {}
+  constructor(private highwayService: HigwayService) {}
 
 canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     console.log("Guard activated for route: ", state.url);

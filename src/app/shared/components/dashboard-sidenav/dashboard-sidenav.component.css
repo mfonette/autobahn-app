@@ -1,70 +1,53 @@
-/* Variables from variables.scss */
-:root {
-    --s-1: 0.5rem;
-    --s-2: 1rem;
-    --s-6: 3rem;
-    --border-radius2: 8px;
-    --divider-color1: #ECEDF1;
-    --error1: #e92c2c;
-}
-
 .sidenav_container {
-    padding: 1rem;
-    margin-top: 1rem;
-    background: #ffffff;
-    min-height: 100vh;
-    /* width: 20%; */
-    /* position: fixed; */
-
-    /* padding: var(--s-2); */
-  /* margin-top: var(--s-2); */
-  /* background: var(--white-color); */
-  /* min-height: 100vh; */
-  /* width: 20%; You can set a fixed width or use percentage */
-  /* position: fixed; */
-  /* top: 4rem; /* Height of the header */
-
+  padding: 1rem;
+  margin-top: 1rem;
+  background: #ffffff;
+  min-height: 100vh;
 }
 
 .sidenav_container nav ul {
-    display: grid;
-    grid-gap: 1rem;
-    list-style-type: none;
-    padding: 0;
+  display: grid;
+  grid-gap: 1rem;
+  list-style-type: none;
+  padding: 0;
 }
 
 .sidenav_container nav ul li {
-    gap: 0.5rem;
-    padding: 0.5rem;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.2s ease-in;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
 }
 
 .sidenav_container nav ul li.active,
 .sidenav_container nav ul li:hover {
-    background: linear-gradient(90deg, rgba(0, 15, 45, 0.05) 0%, rgba(12, 70, 211, 0) 99.99%, rgba(217, 217, 217, 0) 100%);
-    border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 15, 45, 0.05) 0%,
+    rgba(12, 70, 211, 0) 99.99%,
+    rgba(217, 217, 217, 0) 100%
+  );
+  border-radius: 8px;
 }
 
 .sidenav_container nav ul li .icon {
-    /* Icon area mixin applied here */
-    display: inline-grid;
-    place-items: center;
-    min-width: 34px;
-    height: 34px;
-    border: 1px solid #ECEDF1;
-    background: #ECEDF1;
-    border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  height: 34px;
+  border: 1px solid #ecedf1;
+  background: #ecedf1;
+  border-radius: 50%;
 }
 
 .sidenav_container .log-out {
-    color: #e92c2c;
-    margin-top: 3rem;
-    display: flex; /* Assuming gap is used with flex or grid parent */
-    gap: 0.5rem;
+  color: #e92c2c;
+  margin-top: 3rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .sidenav_container .log-out p {
-    font-weight: 500;
+  font-weight: 500;
 }

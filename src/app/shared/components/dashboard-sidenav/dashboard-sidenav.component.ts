@@ -21,8 +21,4 @@ export class DashboardSidenavComponent implements OnInit {
     this.hamClick.emit();
   }
 
-  // Log out
-  logOut() {
-    this.router.navigate(['/login'])
-  }
 }

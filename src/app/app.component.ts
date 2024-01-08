@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription, filter } from 'rxjs';
+import { Subscription} from 'rxjs';
 import { HigwayService } from './shared/services/higway.service';
 import { AutobahnService } from './shared/services/autobahn.service';
 import { Location } from '@angular/common';
@@ -33,14 +33,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllHighWays();
-    this.highwayService.selectedHighway$.subscribe(highway => {
-      console.log('onInIt', highway)
-      this.selectedHighway = highway; // This should update whenever the highway changes
-    });
+    this.getSelectedHighway();
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // Update isMapView based on the current URL
         this.isMapView = event.url.includes('/view-map/map');
       }
     });
@@ -52,6 +48,7 @@ export class AppComponent implements OnInit {
     this.isMenuOpen = this.hamClick;
   }
 
+  // get list of highways
   getAllHighWays() {
     this.subscription.add(this.autobahnService.fetchHighways().subscribe({
       next:(data) => {
@@ -61,26 +58,27 @@ export class AppComponent implements OnInit {
   }));
   }
 
+// get selected highway
   getSelectedHighway() {
     this.subscription.add(this.highwayService.selectedHighway$.subscribe(highway => {
       if (highway) {
         this.selectedHighway = highway;
-        console.log('from app',highway)
       }
     }));
   }
 
+  // set the new selected highway
   onHighwaySelect(highway: string) {
-    console.log(`onHighwaySelect: Highway selected: ${highway} at ${new Date().toISOString()}`);
     this.highwayService.setSelectedHighway(highway);
     }
 
+  
     ngOnDestroy() {
       this.subscription.unsubscribe();  // Unsubscribe when the component is destroyed
     }
 
+        // Navigate back to the previous state
     goBack() {
-      // Navigate back to the previous state
       this.location.back();
     }
 }
