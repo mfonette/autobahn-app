@@ -1,10 +1,7 @@
 import {
   Component,
-  EventEmitter,
   Input,
-  OnChanges,
   OnInit,
-  Output,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -21,7 +18,6 @@ export class DataTableComponent implements OnInit {
   @Input() data: any[] = [];
   @Input() columns: ColumnDefinition[] = [];
   displayedColumns: string[] = [];
-  @Output() viewAction = new EventEmitter<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   dataSource = new MatTableDataSource<any>();
@@ -43,7 +39,4 @@ export class DataTableComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  viewDetails(element: any) {
-    this.viewAction.emit(element);
-  }
 }
